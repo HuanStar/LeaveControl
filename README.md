@@ -11,7 +11,7 @@ Leave Control - [官方主页](https://leavecontrol.rf.gd)
 
 A software designed for students to get rid of the control of polar electronic classroom in information class
 
-一个专为学生在信息课上，可以摆脱极域电子教室的控制的软件
+一个基于Python，专为学生在信息课上，可以摆脱极域电子教室的控制的软件
 
 功能强大，且免费开源的`LeaveControl 脱离控制`终于`发布`了！！！
 

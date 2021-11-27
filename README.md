@@ -1,6 +1,6 @@
 # LeaveControl 脱离控制
 
-![](https://raw.githubusercontent.com/HuanStar/LeaveControl/main/logo/logo.png)
+![](https://raw.githubusercontent.com/HuanStar/LeaveControl/main/logo/logo_new.png)
 
 Leave Control - [官方主页](https://leavecontrol.rf.gd)
 =========================

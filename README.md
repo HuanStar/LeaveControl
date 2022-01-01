@@ -13,6 +13,8 @@ A software designed for students to get rid of the control of polar electronic c
 
 一个基于Python，专为学生在信息课上，可以摆脱极域电子教室的控制的软件
 
+同时发布于[Gitee](https://gitee.com/HuanStar23/LeaveControl/)
+
 功能强大，且免费开源的`LeaveControl 脱离控制`终于`发布`了！！！
 
 `LeaveControl` 让学生们脱控时不必再使用一些繁琐的方式！只需按下按钮即可脱控， 也可按下按钮瞬间恢复回来，让老师无从发现你脱控的痕迹。

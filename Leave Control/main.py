@@ -3,6 +3,10 @@ import psutil
 import tkinter as tk # 导入tkinter库
 from tkinter import messagebox
 from tkinter import filedialog
+import update
+import webbrowser as web
+
+now_ver = 1.3
 
 file = open("./bin/Path.txt", "r", encoding='UTF-8')
 
@@ -10,6 +14,53 @@ Path = file.readline()
 
 file.close()
 
+
+def updates():
+    global now_ver
+
+    def open_update1():
+        web.open("https://gitee.com/HuanStar23/LeaveControl/releases")
+
+    def open_update2():
+        web.open("https://gitee.com/HuanStar23/LeaveControl")
+
+    wd_update = tk.Toplevel()
+    wd_update.title("检查更新")
+    wd_update.geometry('300x100')
+    wd_update.iconbitmap('./img/favicon_new.ico')
+    if update.update(now_ver):
+        lab1 = tk.Label(wd_update, text="当前版本:")
+        lab1.place(x=20, y=15)
+        lab2 = tk.Label(wd_update, text="最新版本:")
+        lab2.place(x=180, y=15)
+        now = tk.Label(wd_update, text=now_ver)
+        now.place(x=80, y=15)
+        versionss = update.versions()
+        new = tk.Label(wd_update, text=versionss)
+        new.place(x=240, y=15)
+        msgs = tk.Label(wd_update, text="检查到新的版本！", font=('Arial', 15), bg="white")
+        msgs.place(x=20, y=40)
+        btu1 = tk.Button(wd_update, text=" 更新 ", command=open_update1)
+        btu1.place(x=40, y=70)
+        btu2 = tk.Button(wd_update, text=" 取消 ", command=wd_update.destroy)
+        btu2.place(x=200, y=70)
+        # ent = tk.Label(wd_path, bg="white", height="2", width="29", font=('Arial', 10), textvariable=var)
+    else:
+        lab1 = tk.Label(wd_update, text="当前版本:")
+        lab1.place(x=20, y=15)
+        lab2 = tk.Label(wd_update, text="最新版本:")
+        lab2.place(x=180, y=15)
+        now = tk.Label(wd_update, text=now_ver)
+        now.place(x=80, y=15)
+        versionss = update.versions()
+        new = tk.Label(wd_update, text=versionss)
+        new.place(x=240, y=15)
+        msgs = tk.Label(wd_update, text="当前已是最新版本！", font=('Arial', 15), bg="white")
+        msgs.place(x=20, y=40)
+        btu1 = tk.Button(wd_update, text=" 查看 ", command=open_update2)
+        btu1.place(x=40, y=70)
+        btu2 = tk.Button(wd_update, text=" 取消 ", command=wd_update.destroy)
+        btu2.place(x=200, y=70)
 
 def findprocess(processname):
     pl = psutil.pids()
@@ -97,11 +148,13 @@ def path():
 
 root = tk.Tk()
 
-root.title('Leave Control 1.2')
+root.title('Leave Control 1.3')
 
 root.geometry('300x160')
 
 root.iconbitmap('./img/favicon_new.ico')
+
+updates()
 
 ans = tk.StringVar()
 
@@ -125,7 +178,7 @@ helpmenu = tk.Menu(menubar, tearoff=0)
 menubar.add_cascade(label='帮助', menu=helpmenu)
 
 helpmenu.add_command(label='指南')
-helpmenu.add_command(label='检查更新')
+helpmenu.add_command(label='检查更新', command=updates)
 helpmenu.add_separator()
 helpmenu.add_command(label='关于')
 
